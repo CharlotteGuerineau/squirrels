@@ -1,0 +1,77 @@
+---
+title: "check_data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{check_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(squirrels)
+library(stringr)
+  
+  primary_fur_color <- c("Black", "Black+Cinnamon", "Cinnamon")
+  colors_are_ok <- !str_detect(string = primary_fur_color, pattern = "\\+")
+  colors_are_ok
+```
+
+```{r}
+check_plus_in_primary_fur_color(
+  primary_fur_color = c("Black", "Black+Cinnamon", "Cinnamon")
+  )
+```
+
+#Fonction qui vérifie si les coordonnées GPS renseignées correspondent bien à Central Park
+```{r}
+latitude <- 40.766
+longitude <- 73.96
+  if (isFALSE(is.numeric(latitude)) | isFALSE(is.numeric(longitude))) {
+    stop("latitude and longitude should be numeric")
+  }
+
+  coordinates_are_ok <-
+    latitude > 40.76400 & latitude < 40.80100 &
+      longitude > -73.98300 & longitude < -73.94735
+
+  coordinates_are_ok
+```
+
+```{r}
+both_valid_latitude <- c(40.766, 40.799)
+both_valid_longitude <- c(-73.96, -73.95)
+both_invalid_latitude <- c(30, 32)
+both_invalid_longitude <- c(-100, -99)
+one_invalid_latitude <- c(40.766, 50)
+one_invalid_longitude <- c(-73.95, -100)
+
+check_coordinates(
+  latitude = both_valid_latitude,
+  longitude = both_valid_longitude
+)
+
+check_coordinates(
+  latitude = both_invalid_latitude,
+  longitude = both_invalid_longitude
+)
+
+check_coordinates(
+  latitude = one_invalid_latitude,
+  longitude = one_invalid_longitude
+)
+```
+
+
+#Ajout d'une fonction qui teste la presence des colonnes dans un df
+```{r}
+check_presence_of_required_columns(data_demo_squirrels )
+```
+
+

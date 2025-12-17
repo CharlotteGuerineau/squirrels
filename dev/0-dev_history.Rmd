@@ -1,0 +1,104 @@
+---
+title: "0-dev_history"
+output: html_document
+---
+
+# Ignore the dev/ folder and its contents for package creation
+```{r}
+usethis::use_build_ignore("dev/")
+```
+
+# Define License with 
+```{r}
+usethis::use_mit_license("Charlotte Guerineau")
+```
+
+# Install a first time
+```{r}
+remotes::install_local(path=here::here(), force=TRUE) 
+```
+
+# Restart the R Session
+```{r}
+rstudioapi::restartSession("rm(list = ls())")
+```
+
+# Ecrire les dependances dans DESCRIPTION
+```{r}
+attachment::att_amend_desc(path=here::here())
+```
+
+# Lancement du check (dont les tests)
+```{r}
+devtools::check()
+```
+
+#lancement pkgload, on simule l'installation
+```{r}
+pkgload::load_all()
+```
+
+
+#creation des vignettes
+```{r}
+usethis::use_vignette("get_info")
+usethis::use_vignette("check_data")
+```
+
+#ecriture des fonctions
+```{r}
+usethis::use_r("check_presence_of_required_columns")
+```
+
+#ecriture des tests
+```{r}
+usethis::use_test("get_df_nrows")
+usethis::use_test("check_plus_in_primary_fur_color")
+usethis::use_test("check_presence_of_required_columns")
+```
+
+#Taux de couverture du code 
+```{r}
+covr::package_coverage()
+covr::report()
+```
+
+
+#Construction du site
+```{r}
+usethis::use_pkgdown()
+pkgdown::build_site(pkg = here::here(), override = list(destination = "inst/site"))
+```
+
+#Ajout d'un README
+```{r}
+usethis::use_readme_rmd()
+```
+
+# Ajout d'un code of conduct
+```{r}
+usethis::use_code_of_conduct("contact@fake.com")
+```
+
+# Ajout d'un fichier de suivi des news
+```{r}
+usethis::use_news_md()
+```
+
+# On change de version
+```{r}
+usethis::use_version(which = "patch")
+```
+
+#Creation de data
+```{r}
+usethis::use_directory("data-raw", ignore = TRUE) 
+usethis::use_data_raw("squirrels")
+```
+
+#Versionnement
+
+```{r}
+usethis::use_git()
+```
+
