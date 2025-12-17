@@ -16,15 +16,15 @@
 save_as_csv <- function(df, path){
 
   if(isFALSE(inherits(df, "data.frame"))){
-    stop("df doit être un data frame")
+    stop("df doit \u00eatre un data frame")
   }
 
   if(isFALSE(dir.exists(dirname(path)))){
-    stop("Le chemin renseigné n'existe pas")
+    stop("Le chemin renseign\u00e9 n\'existe pas")
   }
 
   if(isTRUE(file_ext(path)!="csv")){
-    stop("La chaîne de caractères qui correspond au chemin du fichier doit avoir l’extension .csv")
+    stop("La chaine de caract\u00e8res qui correspond au chemin du fichier doit avoir l\'extension .csv")
   }
 
   write_csv2(df, file = path)

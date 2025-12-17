@@ -14,11 +14,11 @@ test_that("save_as_csv fonctionne", {
 test_that("save_as_csv gestion des erreurs", {
 
  expect_error(object = save_as_csv(data_demo_squirrels, path ="iris.xlsx"),
-              regexp = "La chaîne de caractères qui correspond au chemin du fichier doit avoir l’extension .csv")
+              regexp = "La chaine de caract\u00e8res qui correspond au chemin du fichier doit avoir l\'extension .csv")
 
   expect_error(object = save_as_csv(4, path ="iris.xlsx"),
-               regexp = "df doit être un data frame")
+               regexp = "df doit \u00eatre un data frame")
 
   expect_error(object = save_as_csv(data_demo_squirrels, path ="/toto/iris.csv"),
-               regexp = "Le chemin renseigné n'existe pas")
+               regexp = "Le chemin renseign\u00e9 n\'existe pas")
 })
