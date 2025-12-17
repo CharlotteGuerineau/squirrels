@@ -9,7 +9,9 @@ Depends:
     R (>= 3.5)
 Imports: 
     glue,
-    stringr
+    readr,
+    stringr,
+    tools
 Suggests: 
     knitr,
     rmarkdown,

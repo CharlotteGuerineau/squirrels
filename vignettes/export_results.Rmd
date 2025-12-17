@@ -1,0 +1,30 @@
+---
+title: "export_results"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{export_results}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(squirrels)
+```
+
+#Save as CSV
+```{r}
+
+chemin_tmp <- tempfile(pattern = "output")
+dir.create(chemin_tmp)
+save_as_csv(data_demo_squirrels, path =file.path(chemin_tmp, "iris.csv"))
+
+unlink(chemin_tmp, recursive = TRUE)
+```
+

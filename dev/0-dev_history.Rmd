@@ -43,11 +43,13 @@ pkgload::load_all()
 ```{r}
 usethis::use_vignette("get_info")
 usethis::use_vignette("check_data")
+usethis::use_vignette("export_results")
 ```
 
 #ecriture des fonctions
 ```{r}
 usethis::use_r("check_presence_of_required_columns")
+usethis::use_r("save_as_csv")
 ```
 
 #ecriture des tests
@@ -55,6 +57,7 @@ usethis::use_r("check_presence_of_required_columns")
 usethis::use_test("get_df_nrows")
 usethis::use_test("check_plus_in_primary_fur_color")
 usethis::use_test("check_presence_of_required_columns")
+usethis::use_test("save_as_csv")
 ```
 
 #Taux de couverture du code 
@@ -99,6 +102,23 @@ usethis::use_data_raw("squirrels")
 #Versionnement
 
 ```{r}
+usethis::use_git_config(scope = "user",
+                        user.name="Charlotte Guerineau",
+                        user.email = "charlotte.guerineau@atih.sante.fr")
+usethis::create_github_token()
+gitcreds::gitcreds_set()
+usethis::use_git_config(scope="user",
+                        credential.helper="store")
+usethis::use_git_config(scope="user",
+                        init.defaultBranch = "main")
+usethis::use_git_config(scope="user",
+                        pull.rebase = "false")
+
 usethis::use_git()
+usethis::use_git_remote("origin",
+                        url = "https://github.com/CharlotteGuerineau/squirrels.git",
+                        overwrite = TRUE)
+
+gert::git_push(remote = "origin")
 ```
 
