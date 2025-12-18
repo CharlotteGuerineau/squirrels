@@ -26,4 +26,5 @@ test_that("read_data_day_squirrels don't works", {
   dir.create(chemin)
   expect_error(object = read_data_day_squirrels(chemin),
                regexp = "There is no files corresponding to raw squirrels data in this folder")
+  unlink(chemin)
 })
