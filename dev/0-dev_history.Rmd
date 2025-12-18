@@ -44,13 +44,20 @@ pkgload::load_all()
 usethis::use_vignette("get_info")
 usethis::use_vignette("check_data")
 usethis::use_vignette("export_results")
+usethis::use_vignette("cas_d_usage")
+usethis::use_vignette("read_multiple_data")
 ```
 
 #ecriture des fonctions
 ```{r}
 usethis::use_r("check_presence_of_required_columns")
 usethis::use_r("save_as_csv")
+<<<<<<< HEAD
 usethis::use_r("read_data_day_squirrels")
+=======
+usethis::use_r("filter_squirrels_data_based_on_integrity")
+usethis::use_r("possi_excel")
+>>>>>>> 0458ab4ad2633ff7f69931349f56a336a397d6ed
 ```
 
 #ecriture des tests
@@ -59,7 +66,11 @@ usethis::use_test("get_df_nrows")
 usethis::use_test("check_plus_in_primary_fur_color")
 usethis::use_test("check_presence_of_required_columns")
 usethis::use_test("save_as_csv")
+<<<<<<< HEAD
 usethis::use_test("read_data_day_squirrels")
+=======
+usethis::use_test("analysis_data_squirrels")
+>>>>>>> 0458ab4ad2633ff7f69931349f56a336a397d6ed
 ```
 
 #Taux de couverture du code 

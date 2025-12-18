@@ -24,7 +24,11 @@ save_as_csv <- function(df, path){
   }
 
   if(isTRUE(file_ext(path)!="csv")){
+<<<<<<< HEAD
     stop("La cha\u00eene de caract\u00e8res qui correspond au chemin du fichier doit avoir l\u2019extension .csv")
+=======
+    stop("La chaine de caract\u00e8res qui correspond au chemin du fichier doit avoir l\'extension .csv")
+>>>>>>> 0458ab4ad2633ff7f69931349f56a336a397d6ed
   }
 
   write_csv2(df, file = path)
