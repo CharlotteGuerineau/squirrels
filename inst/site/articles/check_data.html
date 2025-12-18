@@ -34,7 +34,9 @@
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
 <li><a class="dropdown-item" href="../articles/check_data.html">check_data</a></li>
+    <li><a class="dropdown-item" href="../articles/export_results.html">export_results</a></li>
     <li><a class="dropdown-item" href="../articles/get_info.html">get_info</a></li>
+    <li><a class="dropdown-item" href="../articles/read_multiple_data.html">read_multiple_data</a></li>
   </ul>
 </li>
 <li class="nav-item"><a class="nav-link" href="../news/index.html">Changelog</a></li>
@@ -78,6 +80,8 @@
 <span>  primary_fur_color <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"Black"</span>, <span class="st">"Black+Cinnamon"</span>, <span class="st">"Cinnamon"</span><span class="op">)</span></span>
 <span>  <span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE FALSE  TRUE</span></span></code></pre></div>
+<p>#Fonction qui vérifie si les coordonnées GPS renseignées
+correspondent bien à Central Park</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">latitude</span> <span class="op">&lt;-</span> <span class="fl">40.766</span></span>
 <span><span class="va">longitude</span> <span class="op">&lt;-</span> <span class="fl">73.96</span></span>
@@ -116,6 +120,11 @@
 <span>  longitude <span class="op">=</span> <span class="va">one_invalid_longitude</span></span>
 <span><span class="op">)</span></span>
 <span><span class="co">#&gt; [1]  TRUE FALSE</span></span></code></pre></div>
+<p>#Ajout d’une fonction qui teste la presence des colonnes dans un
+df</p>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/check_presence_of_required_columns.html">check_presence_of_required_columns</a></span><span class="op">(</span><span class="va">data_demo_squirrels</span> <span class="op">)</span></span>
+<span><span class="co">#&gt; [1] TRUE</span></span></code></pre></div>
   </main>
 </div>
 

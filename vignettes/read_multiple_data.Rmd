@@ -1,0 +1,69 @@
+---
+title: "read_multiple_data"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{read_multiple_data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>"
+)
+```
+
+```{r setup}
+library(squirrels)
+```
+
+#Import des données 
+```{r}
+readxl::read_excel(system.file("nyc_squirrels_17.xlsx", package = "squirrels"))
+
+#readxl::read_excel(system.file("nyc_squirrels_18.xlsx", package = "squirrels"))
+
+library(purrr)
+library(readxl)
+
+possi_excel <- possibly(.f = read_excel, otherwise = NULL)
+
+data_nyc_squirrels_17oct <- possi_excel(
+  path = system.file("nyc_squirrels_17.xlsx", 
+                     package = "squirrels"))
+data_nyc_squirrels_17oct
+
+data_nyc_squirrels_18oct <- possi_excel(path = system.file("nyc_squirrels_18.xlsx", package = "squirrels"))
+data_nyc_squirrels_18oct
+
+```
+
+#import de tous les fichiers 
+```{r}
+lst_fic <- list.files(
+  path = system.file(package = "squirrels"),
+  pattern = "nyc_squirrels_[0-9][0-9].xlsx",
+  full.names = TRUE
+)
+
+map(.x = lst_fic, .f = possi_excel)
+```
+
+#Enregistrer plusieurs fichiers dans un dossier
+```{r}
+lst_dir <- map_chr(.x = lst_fic, .f = dirname) |> unique()
+
+squirrels <- read_data_day_squirrels(lst_dir)
+```
+
+#Affichage du nombre de lignes pour chaque élément de la liste
+```{r}
+map(.x = squirrels, .f = nrow)
+```
+
+#Affichage des imports qui ont fonctionné uniquement
+```{r}
+compact(squirrels)
+```
+

@@ -9,7 +9,9 @@ Depends:
     R (>= 3.5)
 Imports: 
     glue,
+    purrr,
     readr,
+    readxl,
     stringr,
     tools
 Suggests: 

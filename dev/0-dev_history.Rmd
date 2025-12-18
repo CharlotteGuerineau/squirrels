@@ -50,6 +50,7 @@ usethis::use_vignette("export_results")
 ```{r}
 usethis::use_r("check_presence_of_required_columns")
 usethis::use_r("save_as_csv")
+usethis::use_r("read_data_day_squirrels")
 ```
 
 #ecriture des tests
@@ -58,6 +59,7 @@ usethis::use_test("get_df_nrows")
 usethis::use_test("check_plus_in_primary_fur_color")
 usethis::use_test("check_presence_of_required_columns")
 usethis::use_test("save_as_csv")
+usethis::use_test("read_data_day_squirrels")
 ```
 
 #Taux de couverture du code 
@@ -120,5 +122,11 @@ usethis::use_git_remote("origin",
                         overwrite = TRUE)
 
 gert::git_push(remote = "origin")
+```
+
+#GlobalVariables
+```{r}
+# remotes::install_github("thinkr-open/checkhelper")
+checkhelper::print_globals(quiet = TRUE)
 ```
 
